@@ -6,7 +6,7 @@ const docs=db.get('pot')
     /* GET home page. */
 router.get('/', function(req, res, next) {
 //  res.render('index', { title: 'Express' });
-    docs.insert ({"name":"rishvik"},function(err, docs){
+    docs.find (function(err, docs){
         if(err)console.log(err)
         else  res.json(docs[0]);
 
