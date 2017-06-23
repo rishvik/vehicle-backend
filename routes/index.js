@@ -13,5 +13,23 @@ router.get('/push', function(req, res, next) {
 
     })
 });
+router.get('/find', function(req, res, next) {
+
+    docs.find({"name":"rishvik"} ,function(err, docs){
+        if(err)console.log(err);
+        else  res.json(docs);
+
+
+    })
+});
+router.get('/update', function(req, res, next) {
+
+    docs.update({} ,function(err, docs){
+        if(err)console.log(err);
+        else  res.json(docs);
+
+
+    })
+});
 
 module.exports = router;
