@@ -4,7 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var cors=require("cors");
+var methodoverride=("method-overide");
 var index = require('./routes/index');
 var users = require('./routes/users');
 
@@ -21,10 +22,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
+spp.use(methodoverride());
+
 
 app.use('/', index);
 app.use('/users', users);
-
+app.use(function(req, res, next)){
+  res.header("Access-Control-Allow-Origin","*")
+    res.header("Access-Control-Allow-Methods","DELETE, PUT")
+    res.header("Access-Control-Allow-Headers","Origin, X-Requestwd-with. Content-Type, Accept");
+}
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

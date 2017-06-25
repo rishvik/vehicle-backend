@@ -17,7 +17,7 @@ router.get('/find', function(req, res, next) {
 
     docs.find({"name":"rishvik"} ,function(err, docs){
         if(err)console.log(err);
-        else  res.json(docs);
+        else  res.json(docs[0]);
 
 
     })
