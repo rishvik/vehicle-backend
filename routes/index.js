@@ -22,9 +22,11 @@ router.get('/find', function(req, res, next) {
 
     })
 });
-router.get('/update', function(req, res, next) {
+router.post('/insert', function(req, res, next) {
+    var username=req.body.name;
+    var pass=req.body.password;
 
-    docs.update({} ,function(err, docs){
+    docs.insert({"name":username, "password":pass} ,function(err, docs){
         if(err)console.log(err);
         else  res.json(docs);
 
