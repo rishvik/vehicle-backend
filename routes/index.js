@@ -26,7 +26,7 @@ router.post('/insert', function(req, res, next) {
     var flname=req.body.fname;
     var username=req.body.name;
     var pass=req.body.password;
-    var cty=req.body.city;
+    var cty=req.body.fcity;
 
     docs.insert({"fullname": flname,"name":username, "password":pass,"city":cty} ,function(err, docs){
         if(err)console.log(err);
